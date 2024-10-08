@@ -41,3 +41,4 @@ set("n", "<leader>vrn", vim.lsp.buf.rename)
 
 set("n", "<leader>lg", "<cmd>LazyGit<CR>", {})
 
+-- nvim-tree keymaps

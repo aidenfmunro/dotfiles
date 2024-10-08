@@ -31,3 +31,8 @@ opt.signcolumn = 'yes'
 opt.colorcolumn = '80'
 opt.updatetime = 50
 
+-- disable netrw for nvim-tree
+
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+

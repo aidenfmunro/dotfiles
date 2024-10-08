@@ -9,6 +9,8 @@ spec("plugins.harpoon")
 spec("plugins.lsp-zero")
 spec("plugins.mason")
 spec("plugins.lazygit")
+spec("plugins.nvim-tree")
+spec("plugins.lualine")
 
 require "plugins.lazy"
 require "keymaps"

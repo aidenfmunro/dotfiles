@@ -36,7 +36,6 @@ function module.config()
 		end
 	}
 
-
 	require("mason-lspconfig").setup {
       ensure_installed = module.servers,
       automatic_installation = true,
