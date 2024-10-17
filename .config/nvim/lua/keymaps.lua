@@ -1,7 +1,5 @@
 local set = vim.keymap.set
 
-set('n', '<leader>pv', vim.cmd.Ex)
-
 -- telescope keymaps
 
 set('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { noremap = true, silent = true })
@@ -23,7 +21,7 @@ set('n', '<leader>e', ui.toggle_quick_menu, {})
 set('n', '<leader>a', mark.add_file,        {})
 set('n', '<C-j>', ui.nav_next,              {})
 set('n', '<C-k>', ui.nav_prev,              {})
-set('n', '<C-t>', function() term.gotoTerminal(1) end)
+-- set('n', '<C-t>', function() term.gotoTerminal(1) end)
 
 -- lsp keymaps
 
@@ -42,3 +40,5 @@ set("n", "<leader>vrn", vim.lsp.buf.rename)
 set("n", "<leader>lg", "<cmd>LazyGit<CR>", {})
 
 -- nvim-tree keymaps
+
+set('n', '<C-e>', ":NvimTreeToggle")
