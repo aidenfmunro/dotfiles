@@ -5,6 +5,8 @@ g.mapleader = ' '
 opt.nu = true
 opt.relativenumber = true
 
+g.vimtex_compiler_enabled = 0 
+
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4

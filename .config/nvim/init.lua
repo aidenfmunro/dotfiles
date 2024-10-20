@@ -11,6 +11,7 @@ spec("plugins.mason")
 spec("plugins.lazygit")
 spec("plugins.nvim-tree")
 spec("plugins.lualine")
+spec("plugins.vimtex")
 
 require "plugins.lazy"
 require "keymaps"
