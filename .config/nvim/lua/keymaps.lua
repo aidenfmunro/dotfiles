@@ -1,11 +1,29 @@
 local set = vim.keymap.set
+local opts = { noremap = true, silent = true }
+
+-- disable arrow keys
+
+set("n", "<Up>",    ":echo 'Use k instead'<CR>", opts)
+set("n", "<Down>",  ":echo 'Use j instead'<CR>", opts)
+set("n", "<Left>",  ":echo 'Use h instead'<CR>", opts)
+set("n", "<Right>", ":echo 'Use l instead'<CR>", opts)
+
+set("i", "<Up>",    "<ESC>:echo 'Use k instead'<CR>", opts)
+set("i", "<Down>",  "<ESC>:echo 'Use j instead'<CR>", opts)
+set("i", "<Left>",  "<ESC>:echo 'Use h instead'<CR>", opts)
+set("i", "<Right>", "<ESC>:echo 'Use l instead'<CR>", opts)
+
+set("v", "<Up>",    ":echo 'Use k instead'<CR>", opts)
+set("v", "<Down>",  ":echo 'Use j instead'<CR>", opts)
+set("v", "<Left>",  ":echo 'Use h instead'<CR>", opts)
+set("v", "<Right>", ":echo 'Use l instead'<CR>", opts)
 
 -- telescope keymaps
 
-set('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { noremap = true, silent = true })
-set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>',  { noremap = true, silent = true })
-set('n', '<leader>fb', '<cmd>Telescope buffers<CR>',    { noremap = true, silent = true })
-set('n', '<leader>fh', '<cmd>Telescope help_tags<CR>',  { noremap = true, silent = true })
+set('n', '<leader>ff', '<cmd>Telescope find_files<CR>', opts)
+set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>',  opts)
+set('n', '<leader>fb', '<cmd>Telescope buffers<CR>',    opts)
+set('n', '<leader>fh', '<cmd>Telescope help_tags<CR>',  opts)
 
 -- fugitive keymaps
 
@@ -41,4 +59,9 @@ set("n", "<leader>lg", "<cmd>LazyGit<CR>", {})
 
 -- nvim-tree keymaps
 
-set('n', '<C-e>', ":NvimTreeToggle")
+set('n', '<C-e>', ":NvimTreeToggle", {})
+
+-- vimtex keymaps
+
+set('n', '<leader>ll', "<plug>(vimtex-compile)", {})
+set('n', '<leader>lo', "<plug>(vimtex-compile)", {})

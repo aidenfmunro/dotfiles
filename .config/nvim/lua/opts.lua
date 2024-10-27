@@ -5,8 +5,6 @@ g.mapleader = ' '
 opt.nu = true
 opt.relativenumber = true
 
-g.vimtex_compiler_enabled = 0 
-
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4
@@ -37,4 +35,20 @@ opt.updatetime = 50
 
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
+
+-- Set the compiler method to latexmk
+
+g.vimtex_compiler_method = 'latexmk'
+
+-- Configure latexmk options
+
+g.vimtex_compiler_latexmk = {
+    backend = 'nvim',                     -- Use nvim as the backend
+    options = {
+        '-pdf',                           -- Generate PDF
+        '-lualatex',                       -- Use xelatex as the compiler
+        '-interaction=nonstopmode',      -- Ignore errors during compilation
+        '-synctex=1'                     -- Enable SyncTeX for PDF viewer
+    },
+}
 
