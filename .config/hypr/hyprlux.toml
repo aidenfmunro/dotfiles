@@ -1,0 +1,3 @@
+night_light = { enabled = true, start_time = "08:00", end_time = "24:00", temperature = 3500 }
+
+vibrance_configs = []
