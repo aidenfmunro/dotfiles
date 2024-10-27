@@ -12,7 +12,7 @@ spec("plugins.lazygit")
 spec("plugins.nvim-tree")
 spec("plugins.lualine")
 spec("plugins.vimtex")
-
+spec("plugins.glow")
 require "plugins.lazy"
 require "keymaps"
 

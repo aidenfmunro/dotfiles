@@ -52,3 +52,6 @@ g.vimtex_compiler_latexmk = {
     },
 }
 
+-- Browser option for markdown preview
+
+-- g.mkdp_browser = 'firefox'

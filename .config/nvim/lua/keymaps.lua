@@ -61,6 +61,10 @@ set("n", "<leader>lg", "<cmd>LazyGit<CR>", {})
 
 set('n', '<C-e>', ":NvimTreeToggle", {})
 
+-- Glow keymaps
+
+set('n', "<leader>mp", "<cmd>Glow<CR>", opts)
+
 -- vimtex keymaps
 
 set('n', '<leader>ll', "<plug>(vimtex-compile)", {})
