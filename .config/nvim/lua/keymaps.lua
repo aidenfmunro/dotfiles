@@ -59,7 +59,7 @@ set("n", "<leader>lg", "<cmd>LazyGit<CR>", {})
 
 -- nvim-tree keymaps
 
-set('n', '<C-e>', ":NvimTreeToggle", {})
+set('n', '<C-e>', "<cmd>NvimTreeToggle<CR>", {})
 
 -- Glow keymaps
 
