@@ -15,6 +15,7 @@ spec("plugins.vimtex")
 spec("plugins.glow")
 spec("plugins.nvim-transparent")
 spec("plugins.vim-easy-align")
+spec("plugins.todo-comments")
 
 require "plugins.lazy"
 require "keymaps"
