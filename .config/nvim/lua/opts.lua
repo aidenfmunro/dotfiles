@@ -28,7 +28,7 @@ opt.cursorline = true
 
 opt.scrolloff = 8
 opt.signcolumn = 'yes'
-opt.colorcolumn = '80'
+-- opt.colorcolumn = '80'
 opt.updatetime = 50
 
 -- disable netrw for nvim-tree
@@ -36,21 +36,21 @@ opt.updatetime = 50
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
--- Set the compiler method to latexmk
+    -- Set the compiler method to latexmk
 
-g.vimtex_compiler_method = 'latexmk'
-
--- Configure latexmk options
-
-g.vimtex_compiler_latexmk = {
-    backend = 'nvim',                     -- Use nvim as the backend
-    options = {
-        '-pdf',                           -- Generate PDF
-        '-lualatex',                       -- Use xelatex as the compiler
-        '-interaction=nonstopmode',      -- Ignore errors during compilation
-        '-synctex=1'                     -- Enable SyncTeX for PDF viewer
-    },
-}
+--    vim.g.vimtex_compiler_method = 'latexmk'
+--
+--    -- Configure latexmk options
+--
+--    vim.g.vimtex_compiler_latexmk = {
+--        backend = 'nvim',                     -- Use nvim as the backend
+--        options = {
+--            '-pdf',                           -- Generate PDF
+--            '-xetex',                       -- Use xelatex as the compiler
+--            '-interaction=nonstopmode',      -- Ignore errors during compilation
+--            '-synctex=1'                     -- Enable SyncTeX for PDF viewer
+--        },
+--    }
 
 -- Browser option for markdown preview
 
