@@ -20,6 +20,7 @@ spec("plugins.lspconfig")
 spec("plugins.lspkind")
 spec("plugins.mini-animate")
 spec("plugins.autosave")
+spec("plugins.noice")
 
 require "plugins.lazy"
 require "keymaps"
