@@ -65,12 +65,8 @@ set('n', '<C-e>', "<cmd>NvimTreeToggle<CR>", {})
 
 set('n', "<leader>mp", "<cmd>Glow<CR>", opts)
 
--- vimtex keymaps
-
-set('n', '<leader>ll', "<plug>(vimtex-compile)", {})
-set('n', '<leader>lo', "<plug>(vimtex-compile)", {})
-
 -- Key mapping for vim-easy-align
+
 set('x', 'ga', '<Plug>(EasyAlign)', { desc = 'Align in Visual Mode' })
 set('n', 'ga', '<Plug>(EasyAlign)', { desc = 'Align in Normal Mode' })
 
