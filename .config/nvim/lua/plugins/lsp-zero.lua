@@ -1,22 +1,38 @@
 local module = {
-   'VonHeikemen/lsp-zero.nvim',
-   branch = "v1.x",
-   dependencies = {
-      -- LSP support
-      'neovim/nvim-lspconfig',
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v2.x",
+    dependencies = {
+      -- LSP Support
+      {"neovim/nvim-lspconfig"},
+      {"williamboman/mason.nvim"},
+      {"williamboman/mason-lspconfig.nvim"},
 
-      -- Autocompletetion
-      'hrsh7th/nvim-cmp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-nvim-lua',
+      -- Autocompletion
+      {"hrsh7th/nvim-cmp"},
+      {"hrsh7th/cmp-nvim-lsp"},
+      {"L3MON4D3/LuaSnip"},
+    },
+    config = function()
+      local lsp = require("lsp-zero").preset("recommended")
 
-      -- Snippets
-      'L3MON4D3/LuaSnip',
-      'rafamadriz/friendly-snippets',
-   },
+      -- Setup clangd for C/C++
+      lsp.ensure_installed({"clangd"})
+
+      -- Optional: customize clangd args (e.g., for compile_commands.json)
+      lsp.configure("clangd", {
+        cmd = { "clangd",
+                "--background-index",
+                "--clang-tidy",
+                "--compile-commands-dir=build"},
+        filetypes = { "c", "cc", "cpp", "objc", "objcpp" },
+      })
+
+      -- Setup LSP and completion
+      lsp.setup()
+    end,
+  }
 }
 
 return module
+

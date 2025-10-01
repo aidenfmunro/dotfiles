@@ -1,5 +1,5 @@
 local module = {
-    'neovim/nvim-lspconfig',
+    'onsails/lspkind.nvim',
 }
 
 return module
