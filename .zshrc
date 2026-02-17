@@ -1,19 +1,17 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
 # Path to your Oh My Zsh installation.
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="lambda"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-export PATH=/usr/local/texlive/2024/bin/x86_64-linux/tlmgr:$PATH
-export PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
-export MANPATH=/usr/local/texlive/2024/texmf-dist/doc/man:$MANPATH
-export INFOPATH=/usr/local/texlive/2024/texmf-dist/doc/info:$INFOPATH
 
 source $ZSH/oh-my-zsh.sh
 
-# zinit installation 
+# zinit installation
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -47,3 +45,15 @@ alias py='python3'
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 zstyle ':completions:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gd='git diff'
+alias gl='git log --oneline --graph --decorate'
+alias gco='git checkout'
+alias gp='git push'
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
