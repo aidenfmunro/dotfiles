@@ -9,14 +9,16 @@ spec("plugins.lsp-zero")
 spec("plugins.lazygit")
 spec("plugins.nvim-tree")
 spec("plugins.lualine")
-spec("plugins.nvim-transparent")
-spec("plugins.vim-easy-align")
+spec("plugins.transparent")
 spec("plugins.todo-comments")
 spec("plugins.lspkind")
-spec("plugins.mini-animate")
 spec("plugins.autosave")
 spec("plugins.noice")
+spec("plugins.gitsigns")
+spec("plugins.mini-surround")
+spec("plugins.completion")
+spec("plugins.rust")
+spec("plugins.autopairs")
 
 require "plugins.lazy"
 require "keymaps"
-

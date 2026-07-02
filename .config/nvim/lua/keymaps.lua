@@ -27,15 +27,13 @@ set('n', '<leader>fh', '<cmd>Telescope help_tags<CR>',  opts)
 
 -- harpoon keymaps
 
-local mark = require "harpoon.mark"
-local ui   = require "harpoon.ui"
-local term = require "harpoon.term"
+local harpoon = require("harpoon")
 
-set('n', '<leader>e', ui.toggle_quick_menu, {})
-set('n', '<leader>a', mark.add_file,        {})
-set('n', '<C-j>', ui.nav_next,              {})
-set('n', '<C-k>', ui.nav_prev,              {})
-set('n', '<C-t>', function() term.gotoTerminal(1) end)
+set("n", "<leader>a", function() harpoon:list():add() end)
+set("n", "<leader>e", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+set("n", "<C-k>", function() harpoon:list():prev() end)
+set("n", "<C-j>", function() harpoon:list():next() end)
 
 -- lazygit keymaps
 
@@ -45,8 +43,8 @@ set("n", "<leader>lg", "<cmd>LazyGit<CR>", {})
 
 set('n', '<C-e>', "<cmd>NvimTreeToggle<CR>", {})
 
--- Key mapping for vim-easy-align
+-- rust keymaps
 
-set('x', 'ga', '<Plug>(EasyAlign)', { desc = 'Align in Visual Mode' })
-set('n', 'ga', '<Plug>(EasyAlign)', { desc = 'Align in Normal Mode' })
-
+set("n", "<leader>rca", function() vim.cmd.RustLsp('codeAction') end, opts)
+set("n", "<leader>rod", function() vim.cmd.RustLsp('hover', 'actions') end, opts)
+set("n", "<leader>rem", function() vim.cmd.RustLsp('expandMacro') end, opts)

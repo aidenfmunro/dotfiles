@@ -1,0 +1,129 @@
+local module = {
+  "lewis6991/gitsigns.nvim",
+  event = { "BufReadPre", "BufNewFile" },
+}
+
+function module.config()
+  require("gitsigns").setup({
+    signs = {
+      add          = { text = "│" },
+      change       = { text = "│" },
+      delete       = { text = "_" },
+      topdelete    = { text = "‾" },
+      changedelete = { text = "~" },
+      untracked    = { text = "┆" },
+    },
+
+    signs_staged = {
+      add          = { text = "│" },
+      change       = { text = "│" },
+      delete       = { text = "_" },
+      topdelete    = { text = "‾" },
+      changedelete = { text = "~" },
+      untracked    = { text = "┆" },
+    },
+
+    signcolumn = true,
+    numhl = false,
+    linehl = false,
+    word_diff = false,
+
+    watch_gitdir = {
+      follow_files = true,
+    },
+
+    auto_attach = true,
+    attach_to_untracked = false,
+    current_line_blame = false,
+
+    current_line_blame_opts = {
+      virt_text = true,
+      virt_text_pos = "eol",
+      delay = 500,
+      ignore_whitespace = false,
+    },
+
+    current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
+
+    sign_priority = 6,
+    update_debounce = 100,
+    status_formatter = nil,
+    max_file_length = 40000,
+
+    preview_config = {
+      border = "rounded",
+      style = "minimal",
+      relative = "cursor",
+      row = 0,
+      col = 1,
+    },
+
+    on_attach = function(bufnr)
+      local gs = package.loaded.gitsigns
+
+      local function map(mode, lhs, rhs, desc)
+        vim.keymap.set(mode, lhs, rhs, {
+          buffer = bufnr,
+          desc = desc,
+          noremap = true,
+          silent = true,
+        })
+      end
+
+      -- Navigation
+      map("n", "]c", function()
+        if vim.wo.diff then
+          vim.cmd.normal({ "]c", bang = true })
+        else
+          gs.nav_hunk("next")
+        end
+      end, "Next Git hunk")
+
+      map("n", "[c", function()
+        if vim.wo.diff then
+          vim.cmd.normal({ "[c", bang = true })
+        else
+          gs.nav_hunk("prev")
+        end
+      end, "Previous Git hunk")
+
+      -- Hunk actions
+      map("n", "<leader>gs", gs.stage_hunk, "Stage Git hunk")
+      map("n", "<leader>gr", gs.reset_hunk, "Reset Git hunk")
+      map("n", "<leader>gp", gs.preview_hunk, "Preview Git hunk")
+      map("n", "<leader>gi", gs.preview_hunk_inline, "Preview Git hunk inline")
+
+      map("v", "<leader>gs", function()
+        gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+      end, "Stage selected Git hunk")
+
+      map("v", "<leader>gr", function()
+        gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+      end, "Reset selected Git hunk")
+
+      -- Buffer actions
+      map("n", "<leader>gS", gs.stage_buffer, "Stage Git buffer")
+      map("n", "<leader>gR", gs.reset_buffer, "Reset Git buffer")
+      map("n", "<leader>gu", gs.undo_stage_hunk, "Undo stage Git hunk")
+
+      -- Blame
+      map("n", "<leader>gb", function()
+        gs.blame_line({ full = true })
+      end, "Git blame line")
+
+      map("n", "<leader>gB", gs.toggle_current_line_blame, "Toggle Git line blame")
+
+      -- Diff
+      map("n", "<leader>gd", gs.diffthis, "Git diff this")
+      map("n", "<leader>gD", function()
+        gs.diffthis("~")
+      end, "Git diff against previous commit")
+
+      -- Toggles
+      map("n", "<leader>gt", gs.toggle_deleted, "Toggle Git deleted lines")
+      map("n", "<leader>gw", gs.toggle_word_diff, "Toggle Git word diff")
+    end,
+  })
+end
+
+return module
